@@ -49,4 +49,11 @@ class AdminController extends Controller
         
         return back(); 
     }
+
+    public function guestMessages($session_id = false){
+        
+
+        $message_list = Message::where('session_id', $session_id)->select('message')->orderBy('id', 'desc')->limit(10)->get();
+        return response([$message_list]);
+    }
 }
