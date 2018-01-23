@@ -13,8 +13,18 @@
 Route::get('/',"HomeController@index" 
 );
 
+
 Route::get('/chat', function () {
     return view('chat');
 });
 Route::post('/',"HomeController@create" 
 );
+
+
+Route::get('/admin/{session_id}', 'AdminController@index');
+Route::get('/admin', 'AdminController@index');
+Route::post('/admin/{session_id}', 'AdminController@sendMessage');
+Route::post('/admin', 'AdminController@sendMessage');
+
+
+

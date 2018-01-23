@@ -11,5 +11,8 @@ class Message extends Model
     ];
 
     protected $table = 'messages';
+
     
+    
+
 }
