@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/admin/{session_id}', 'AdminController@index');
+Route::get('/admin', 'AdminController@index');
+Route::post('/admin/{session_id}', 'AdminController@sendMessage');
+Route::post('/admin', 'AdminController@sendMessage');
+
+
+
