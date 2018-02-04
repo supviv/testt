@@ -31,7 +31,7 @@ class AdminController extends Controller
          return view('admin', [
             'session_list' => $session_list, 
             'session_id' => $session_id
-         ]);
+         ]);    
     }
 
     public function sendMessage($session_id = false, Request $request){
@@ -50,10 +50,82 @@ class AdminController extends Controller
         return back(); 
     }
 
-    public function guestMessages($session_id = false){
+    public function getMessages($session_id = false){
+        
+        $message_list = Message::where('session_id', $session_id)
+                                ->select('message', 'admin')
+                                ->orderBy('id', 'asc')
+                                ->limit(10)->get();
+
+        
+        $session_list = Message::select('session_id')->groupBy('session_id')->get();
+        
+        $message = new Message();
+        
         
 
-        $message_list = Message::where('session_id', $session_id)->select('message')->orderBy('id', 'desc')->limit(10)->get();
-        return response([$message_list]);
+         return view('admin', [
+            
+            'message_list' => $message_list,
+            'session_list' => $session_list, 
+            'message' => $message, 
+            'session_id' => $session_id
+        ]);
+
+        
+        
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //return response([$message_list]);
+        
+
+        /*
+        $message_admin = Message::where('session_id', $session_id)
+                                ->where('admin', '<>', 1)
+                                ->select('message')
+                                ->orderBy('id', 'asc')
+                                ->limit(10)->get();
+        
+        $message_guest = Message::where('session_id', $session_id)
+                                ->where('admin', 1)
+                                ->select('message')
+                                ->orderBy('id', 'asc')
+                                ->limit(10)->get();
+
+        
+
+        $message_admin = Message::where('session_id', $session_id)
+                                ->select('message', 'admin')
+                                ->orderBy('id', 'asc')
+                                ->limit(10)->get();
+
+        
+        $session_list = Message::select('session_id')->groupBy('session_id')->get();
+        $message = new Message();
+        
+        
+
+         return view('admin', [
+            'message_admin' => $message_admin,
+            //'message_guest' => $message_guest,
+            'session_list' => $session_list, 
+            'message' => $message, 
+            'session_id' => $session_id
+        ]);  
+        */    
     }
+    
+    
 }

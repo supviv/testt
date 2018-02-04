@@ -26,6 +26,12 @@ Route::get('/admin', 'AdminController@index');
 Route::post('/admin/{session_id}', 'AdminController@sendMessage');
 Route::post('/admin', 'AdminController@sendMessage');
 
-Route::get('/admin-messages/{session_id}', 'AdminController@guestMessages');
+Route::get('/admin/{session_id}', 'AdminController@getMessages');
+
+
+
+
+
+
 
 
