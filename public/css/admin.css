@@ -1,3 +1,4 @@
+
 .body{
   margin: 0px;
 }
@@ -31,8 +32,9 @@
   margin: 0 auto;
   top: 25px;
   position: relative;
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .chat-composer{
@@ -197,7 +199,7 @@
 
 .boxed_item_smaller{
   font-size: 12px;
-  color: #D8D8D8;
+  color: #FFC107;
   width: 200px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
