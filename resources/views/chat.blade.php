@@ -10,8 +10,7 @@
     padding: 10px;
     border: 5px solid gray;
     margin: 0; 
-"> 
-    <p> </p>	
+">  	
 
     </div>
     <br>

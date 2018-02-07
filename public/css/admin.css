@@ -31,7 +31,8 @@
   margin: 0 auto;
   top: 25px;
   position: relative;
-
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .chat-composer{
@@ -60,6 +61,29 @@
   border-radius: 0;
 }
 
+/*Chat bubbles*/
+
+
+.chat-bubble {
+  width: 80%;
+  padding: 15px;
+  margin: 5px 10px 0; 
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px:
+}
+
+.guest .chat-bubble {
+  background: #DCDFE6;
+  color: #000;
+}
+
+.admin .chat-bubble {
+  background: #0076FF;
+  margin-left: auto;
+  
+}
+
 /*Sidebar*/
 
 
@@ -80,10 +104,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-.fa-times:hover{
-  opacity: 1;
-}
-
 .sidebar_menu{
   position: fixed;
   width: 250px;
@@ -94,17 +114,29 @@
   background-color: rgba(17,17,17,0.9);
   opacity: 0.9;
   transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
+.navigation_item a:link{
+  color: #1ddced;
+}
 
+.navigation_item a:visited { 
+  color: #ccc; 
+}
+
+.navigation_item a:hover{
+  color: #FFC107;
+}
+
+.active {
+  font-weight: bold;
+  text-transform: uppercase;
+  
+}
 
 .opacity_one{
   opacity: 1;
-  transition: all 0.2s ease-in-out;
-}
-
-.toggle_menu:hover{
-  background-color: #FE4365;
   transition: all 0.2s ease-in-out;
 }
 
@@ -142,12 +174,6 @@
   cursor: pointer;
 }
 
-.menu_close:hover{
-  color: #FE4365;
-  opacity: 1;
-  transition: all 0.2s ease-in-out;
-}
-
 .navigation_section{
   margin: 20px 0;
   display: block;
@@ -168,11 +194,6 @@
   cursor: pointer;
 }
 
-.navigation_item:hover{
-  color: white;
-  transition: all 0.3s ease-in-out;
-}
-
 
 .boxed_item_smaller{
   font-size: 12px;
@@ -183,11 +204,4 @@
   border-width: 1px;
   margin: 0 0 20px 0;
 }
-
-.boxed_item_smaller:hover{
-  background-color: white;
-  color: #111;
-  transition: all 0.3s ease-in-out;
-}
-
 
