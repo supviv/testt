@@ -41,4 +41,31 @@ class HomeController extends Controller
     return back();
 }
 
+public function fetchMessages(){
+     
+
+    $session_id = session()->getId();
+
+    $message_list = Message::where('session_id', $session_id)
+                                ->select('message', 'admin')
+                                ->orderBy('id', 'asc')
+                                ->limit(100)->get(); 
+
+
+    
+    if($session_id) {
+        foreach($message_list as $mssg) {
+            if($mssg->admin === 1) {
+
+                echo "<b> Admin: </b>". $mssg->message. "<br>";
+                
+            } else {
+                    
+                echo "<b> Guest: </b>". $mssg->message. "<br>";
+                
+                }
+            } 
+        }
+    }
+
 }

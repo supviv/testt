@@ -52,7 +52,7 @@ class AdminController extends Controller
 
     
     public function fetchMessages($session_id = false){
-
+    
     $message_list = Message::where('session_id', $session_id)
                                 ->select('message', 'admin')
                                 ->orderBy('id', 'asc')

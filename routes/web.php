@@ -10,15 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',"HomeController@index" 
-);
-
-
-Route::get('/chat', function () {
-    return view('chat');
-});
-Route::post('/',"HomeController@create" 
-);
+Route::get('/',"HomeController@index" );
+Route::get('/chat', function () { return view('chat');});
+Route::post('/',"HomeController@create" );
+Route::get('/ok', 'HomeController@fetchMessages');
 
 
 Route::get('/admin/{session_id}', 'AdminController@index');
@@ -29,6 +24,7 @@ Route::post('/admin', 'AdminController@sendMessage');
 //Route::get('/admin/{session_id}', 'AdminController@fetchMessages');
 
 Route::get('admin/{session_id}/messages ', 'AdminController@fetchMessages');
+
 
 
 
