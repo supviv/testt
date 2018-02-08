@@ -22,27 +22,34 @@
      		}, 100);
      	});
 
+
+     	function boxfocus() {
+     		document.getElementById("message").focus();
+     	}
+
      </script>
 	
 </head>
-<body>
+<body onload="boxfocus();">
 <div id="background">
-	<div class="sidebar_menu">
-		<i class="fa fa-times"></i>
-		<ul class="navigation_section">
-			<li class="navigation_item" id="profile">
-				
-				@foreach($session_list as $row)
+	<div class="sidebar_menu" id="sidebar_menu">
+			<ul class="navigation_section">
+				<li class="navigation_item" id="profile">
 					
-				<li class="navigation_item">
-					<a data-target="data" @if($session_id == $row->session_id ) class="active" @endif"
-					href="/admin/{{$row->session_id}}"> New chat </a>
-				</li>
-				
-				@endforeach	
-		</ul>
-
+					@foreach($session_list as $row)
+						
+					<li class="navigation_item">
+						<a data-target="data" @if($session_id == $row->session_id ) class="active" @endif"
+						href="/admin/{{$row->session_id}}"> New chat</a>
+					</li>
+					
+					@endforeach	
+			</ul>
+		<center>
+			<a href="{{url('admin')}}"><h1 class="boxed_item boxed_item_smaller">BACK</h1></a>
+		</center>
 	</div>
+	
 
 	<!-- End of sidebar -->
 
@@ -76,7 +83,6 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 

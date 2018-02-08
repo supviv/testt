@@ -52,30 +52,20 @@ class AdminController extends Controller
 
     
     public function fetchMessages($session_id = false){
-    
-    $message_list = Message::where('session_id', $session_id)
+
+   
+   $message_list = Message::where('session_id', $session_id)
                                 ->select('message', 'admin')
                                 ->orderBy('id', 'asc')
                                 ->limit(100)->get(); 
 
+    
+      return view('messages', [
+            'message_list' => $message_list, 
+            'session_id' => $session_id
+         ]);
 
-
-
-    if($session_id) {
-        foreach($message_list as $mssg) {
-            if($mssg->admin === 1) {
-
-                echo "<b> Admin: </b>". $mssg->message. "<br>";
-                
-            } else {
-                    
-                echo "<b> Guest: </b>". $mssg->message. "<br>";
-                
-                }
-            } // endforeach
-        }
-    }
-        
         //return response([$message_list]);
-   
+   }
+
 }
